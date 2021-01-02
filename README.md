@@ -63,11 +63,12 @@ The links to look at (*great thanks to all these people*):
 - [Actor-Critic Implementation of *higgsfield*](https://github.com/higgsfield/RL-Adventure-2/blob/master/1.actor-critic.ipynb)
 - [DRL book - second edition - A2C on a pong game](https://github.com/PacktPublishing/Deep-Reinforcement-Learning-Hands-On-Second-Edition/blob/master/Chapter12/02_pong_a2c.py)
 
+
+## The flow of REINFORCE algorithm is:
+
 Pseudo Code                 |
 --------------------------- |
 ![pseudo code](static/reinforce_pseudo_code.png) |
-
-## The flow of REINFORCE algorithm is:
 
 1. Perform a trajectory roll-out using the current policy
 2. Store log probabilities (of policy) and reward values at each step
