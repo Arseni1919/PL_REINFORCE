@@ -54,7 +54,7 @@ REINFORCE net:
 <!--         ) -->
 ```
 
-The links to look at (*great thanks to all these people*):
+##The links to look at (*great thanks to all these people*):
 
 - [REINFORCE+A2C (google colab)](https://colab.research.google.com/github/yfletberliac/rlss-2019/blob/master/labs/DRL.01.REINFORCE%2BA2C.ipynb#scrollTo=aNH3udIuyFgK)
 - [DQN example with Pytorch-Lightning (google colab)](https://colab.research.google.com/drive/1F_RNcHzTfFuQf-LeKvSlud6x7jXYkG31#scrollTo=7uQVI-xv9Ddj)
