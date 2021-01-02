@@ -65,5 +65,5 @@ The links to look at (*great thanks to all these people*):
 
 Pseudo Code                 |
 --------------------------- |
-![pseudo code](reinforce_pseudo_code.png) |
+![pseudo code](static/reinforce_pseudo_code.png) |
 
