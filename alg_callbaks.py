@@ -11,7 +11,8 @@ class ALGCallback(Callback):
 
     def on_train_end(self, trainer, pl_module):
         # print('--- training ends ---')
-        torch.save(pl_module.net.state_dict(), "example.ckpt")
+        if SAVE_RESULTS:
+            torch.save(pl_module.net.state_dict(), "example.ckpt")
 
     def on_train_epoch_end(self, trainer, pl_module, outputs):
         """Called when the train epoch ends."""

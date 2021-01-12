@@ -16,7 +16,7 @@ import gym
 ENV = 'LunarLander-v2'
 # ENV='MountainCar-v0'
 NUMBER_OF_GAMES = 5
-
+SAVE_RESULTS = True
 # ------------------------------------------- #
 # ------------------FOR ALG:----------------- #
 # ------------------------------------------- #
