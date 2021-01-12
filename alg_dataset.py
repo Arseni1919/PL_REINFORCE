@@ -1,16 +1,31 @@
 from CONSTANTS import *
 
 
-class ALGDataset(Dataset):
-    def __init__(self):
-        self.buffer = deque(maxlen=REPLAY_SIZE)
+class ALGDataset(torch.utils.data.IterableDataset):
+    def __init__(self, model, env, sample_size: int = 1):
+        self.model = model
+        self.env = env
+        self.sample_size = sample_size
 
-    def __len__(self):
-        return len(self.buffer)
-
-    def __getitem__(self, indx):
-        item = self.buffer[indx]
-        return item.state, item.action, item.reward, item.done, item.new_state
+    def __iter__(self):  # -> Tuple:
+        state = self.env.reset()
+        log_probs = []
+        rewards = []
+        states = []
+        actions = []
+        self.model.eval()
+        for steps in range(MAX_LENGTH_OF_A_GAME):
+            action, log_prob = self.model.select_action(state)
+            new_state, reward, done, _ = self.env.step(action)
+            log_probs.append(log_prob)
+            rewards.append(reward)
+            states.append(state)
+            actions.append(action)
+            state = new_state
+            if done:
+                break
+        self.model.train()
+        yield rewards, log_probs, states, actions
 
     def append(self, experience):
         self.buffer.append(experience)

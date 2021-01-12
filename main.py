@@ -2,14 +2,12 @@ from CONSTANTS import *
 from alg_lightning_module import ALGLightningModule
 from alg_datamodule import ALGDataModule
 from alg_callbaks import ALGCallback
-from alg_dataset import ALGDataset
 from try_weights import play
 
 
 def main():
-    dataset = ALGDataset()
-    model = ALGLightningModule(dataset)
-    data_module = ALGDataModule(dataset)
+    model = ALGLightningModule()
+    data_module = ALGDataModule(net=model.net)
 
     trainer = pl.Trainer(callbacks=[ALGCallback()],
                          max_epochs=MAX_EPOCHS,
